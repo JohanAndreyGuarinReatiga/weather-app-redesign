@@ -7,8 +7,201 @@
     <link rel="shortcut icon" href="./storage/img/logo.png" type="image/png">
     <link rel="stylesheet" href="./css/style.css">
     <script type="module" defer src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="js/graph.js"></script>
 </head>
 <body>
+   <header>
+        <nav id="navbar">
+           <form id="search" class="form__search" action="current.json" method="get">
+                <div class="div__icon">
+                    <input type="text" name="location">
+                    <img src="storage/img/search_white.png">
+                </div>
+           </form>
+            <div class="div__body">
+                <div class="div__title">
+                    <h1 id="temp_c">0°</h1>
+                    <span id="feelslike_c"></span>
+                </div>
+                <div class="div__image">
+                    <img id="icon" src="storage/img/cloud_and_sun_1.png">
+                    <span id="status">Cloudy</span>
+                </div>
+            </div>
+            <div id="div__footer" class="div__footer">
+                <span id="last_updated">January 01, 00:00</span>
+                <p><strong id="maxtemp_c">Day 0°</strong><strong id="mintemp_c">Night -0°</strong></p>
+            </div>
+            <form class="form__submit" action="?" method="get">
+                <input type="submit" class="active" value="Today">
+                <input type="submit" value="Tomorrow">
+                <input type="submit" value="10 days">
+            </form>
+        </nav>
+   </header>
+   <main>
+        <div class="div__stats">
+            <section class="section__stats">
+                <article class="article__stats">
+                    <img src="storage/img/air.png" alt="">
+                    <div class="div__inf">
+                        <h1>Wind Speed</h1>
+                        <h2>12km/h</h2>
+                    </div>
+                    <div class="div__chngs">
+                        <img src="storage/img/arrow_drop_down.png" alt="">
+                        <h3>2 km/h</h3>
+                    </div>    
+                </article>
+                <article class="article__stats">
+                    <img src="storage/img/rainy.png" alt="">
+                    <div class="div__inf">
+                        <h1>Rain chance</h1>
+                        <h2>24%</h2>
+                    </div>
+                    <div class="div__chngs">
+                        <img src="storage/img/arrow_drop_down(prpl).png" alt="">
+                        <h3>10%</h3>
+                    </div>    
+                </article>
+            </section>
+            <section class="section__stats">
+                <article class="article__stats">
+                    <img src="storage/img/air.png" alt="">
+                    <div class="div__inf">
+                        <h1>Pressure</h1>
+                        <h2>720 hpa</h2>
+                    </div>
+                    <div class="div__chngs">
+                        <img src="storage/img/arrow_drop_down(prpl).png" alt="">
+                        <h3>32 hpa</h3>
+                    </div>    
+                </article>
+                <article class="article__stats">
+                    <img src="storage/img/rainy.png" alt="">
+                    <div class="div__inf">
+                        <h1>UV Index</h1>
+                        <h2>2,3</h2>
+                    </div>
+                    <div class="div__chngs">
+                        <img src="storage/img/arrow_drop_down.png" alt="">
+                        <h3>0.3</h3>
+                    </div>    
+                </article>
+            </section>
+        </div>
+        <div class="div__hourly">
+            <article class="article__forecast">
+                <img src="storage/img/history_toggle_off.png" alt="">
+                <h3>Hourly forecast</h3>
+            </article>
+            <article class="article__hourly">
+                <div class="div__hourly-c">
+                    <div>
+                        <h3>Now</h3>
+                    </div>
+                    <div>
+                        <img src="storage/img/dark-cloudy_sunny.png" alt="">
+                    </div>
+                    <div>
+                        <h2>10°</h2>
+                    </div>
+                </div>
+                <div class="div__hourly-c">
+                    <div>
+                        <h3>10<span>AM</span></h3>
+                    </div>
+                    <div>
+                        <img src="storage/img/cloud.png" alt="">
+                    </div>
+                    <div>
+                        <h2>8°</h2>
+                    </div>
+                </div>
+                <div class="div__hourly-c">
+                    <div>
+                        <h3>11<span>AM</span></h3>
+                    </div>
+                    <div>
+                        <img src="storage/img/cloud.png" alt="">
+                    </div>
+                    <div>
+                        <h2>5°</h2>
+                    </div>
+                </div>
+                <div class="div__hourly-c">
+                    <div>
+                        <h3>12<span>AM</span></h3>
+                    </div>
+                    <div>
+                        <img src="storage/img/dark-cloudy_sunny.png" alt="">
+                    </div>
+                    <div>
+                        <h2>12°</h2>
+                    </div>
+                </div>
+                <div class="div__hourly-c">
+                    <div>
+                        <h3>1<span>PM</span></h3>
+                    </div>
+                    <div>
+                        <img src="storage/img/dark-cloudy_sunny.png" alt="">
+                    </div>
+                    <div>
+                        <h2>9°</h2>
+                    </div>
+                </div>
+                <div class="div__hourly-c">
+                    <div>
+                        <h3>2<span>PM</span></h3>
+                    </div>
+                    <div>
+                        <img src="storage/img/cloud.png" alt="">
+                    </div>
+                    <div>
+                        <h2>12°</h2>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="temperature">
+            <div class="title">
+                <img src="storage/img/calendar_month.png" alt="">
+                <h3>Day forecast</h3>
+            </div>
+            <canvas id="tempChart"></canvas>
+        </div>
+        <div class="div__rainchance">
+            <div class="div__title-ch">
+                <img src="storage/img/rainy.png" alt="">
+                <h1>Chance of rain</h1>
+            </div>
+            <div class="div__chnc">
+                <div class="div__ch-row">
+                    <h2>7 PM</h2>
+                    <img src="storage/img/row-1.png" alt="">
+                    <h2>27%</h2>
+                </div>
+                <div class="div__ch-row">
+                    <h2>8 PM</h2>
+                    <img src="storage/img/row-2.png" alt="">
+                    <h2>44%</h2>
+                </div>
+                <div class="div__ch-row">
+                    <h2>9 PM</h2>
+                    <img src="storage/img/row-3.png" alt="">
+                    <h2>56%</h2>
+                </div>
+                <div class="div__ch-row">
+                    <h2>10 PM</h2>
+                    <img src="storage/img/row-4.png" alt="">
+                    <h2>88%</h2>
+                </div>
+            </div>
+        </div>
+   </main>
 
+   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

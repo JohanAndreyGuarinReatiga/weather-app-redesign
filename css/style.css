@@ -1,11 +1,329 @@
 @import url(variables.css);
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: var(--color-2);
     font-family: "OpenSans-Regular";
 }
-body{
+
+body {
     background: var(--background-1);
+}
+header{
+    transition:height 0.4s ease-in-out;
+    background: red;
+    /* height: 420px; */
+}
+#navbar {
+    transition:height 0.4s ease-in-out, border-radius 0.4s ease-in-out , gap 0.4s ease-in-out;
+    width: 100%;
+    height: 345px;
+    padding: 20px 23px 0px;
+    background-image: url(../storage/img/background.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center calc(0% - 100px);
+    background-attachment: fixed;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 33px;
+    border-bottom-right-radius: 33px;
+    border-bottom-left-radius: 33px;
+   
+}
+
+.form__search {
+    display: flex;
+}
+.div__icon{
+    flex: 1;
+    position: relative;
+}
+.div__icon img{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: -10;
+}
+.div__icon input{
+   width: 100%;
+   height: 40px;
+   border: none;
+   outline: none;
+   font-size: 22px;
+   background: transparent;
+   color: var(--color-1);
+   padding-right: 35px;
+}
+
+.div__body {
+    display: flex;
+    justify-content: space-between;
+}
+.div__title{
+    display: flex;
+    align-items: flex-end;
+    /* background: red; */
+    flex: 2;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+.div__title h1{
+    /* transition:font-size 0.4s ease-in-out; */
+    font-size: 6rem;
+    color: var(--color-1);
+    letter-spacing: -5px;
+}
+.div__title span{
+    /* transition:font-size 0.4s ease-in-out; */
+    font-size: 18px;
+    color: var(--color-1);
+}
+.div__image{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.div__image img{
+    /* transition:width 0.4s ease-in-out, height 0.4s ease-in-out; */
+    /* background: red; */
+    width: 95px;
+    height: 95px;
+    object-fit: contain;
+}
+.div__image span{
+    font-size: 22px;
+    color: var(--color-1);
+    text-align: center;
+}
+.div__footer {
+    transition:display 0.4s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.div__footer span{
+    color: var(--color-1);
+    font-size: 18px;
+}
+.div__footer p{
+    display: flex;
+    flex-direction: column;
+}
+.div__footer p strong{
+    color: var(--color-1);
+    font-size: 18px;
+}
+.form__submit{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.form__submit input{
+    width: 100%;
+    height: 42px;
+    outline: none;
+    border: none;
+    border-radius: 14px;
+    background-color: var(--color-1);
+    color: var(--color-2);
+    font-size: 16px;
+    font-weight: normal;
+}
+.form__submit input.active{
+    background: var(--button-1);
+}
+main{
+    position: relative;
+    top: 400px;
+    padding: 0px 23px 0px;
+}
+.section__stats{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    
+}
+.article__stats{
+    width: 100%;
+    height: 65px;
+    outline: none;
+    border: none;
+    border-radius: 16px;
+    background-color: var(--color-4);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 8px;
+    img{
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+    }
+    h1{
+        font-size: 14px;
+    }
+    h2{
+        font-size: 16px;
+        margin-top: 4px;
+    }
+    h3{
+        font-size: 11px;
+    }
+}
+
+.div__stats{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.div__chngs{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 20px;
+    align-items: center;
+    gap: 5px;
+    img{
+        width: 6.67px;
+        height: 3.33px;
+        object-fit: contain;
+    }
+}
+
+.div__hourly{
+    width: 100%;
+    height: 150px;
+    outline: none;
+    border: none;
+    border-radius: 18px;
+    background-color: var(--color-4);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 16px;
+    gap: 16px;
+}
+
+.article__forecast{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding: 12px 0px 0px 11px;
+    font-size: 14px;
+    align-items: center;
+    img{
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+    }
+}
+
+.div__hourly-c{
+    img{
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+    }
+    h3{
+        font-size: 13.16px;
+    }
+    h2{
+        font-size: 18.8px;
+    }
+    span{
+        font-size: 10.16px;
+    }
+}
+
+.article__hourly{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+
+.temperature{
+    background: #d0bcff4d;
+    width: 100%;
+    height: 219px;
+    margin: auto;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    top: 40px;
+}
+.title{
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    h3{
+        font-size: 14px;
+    }
+}
+canvas {
+    position: relative;
+    width: 100%;
+}
+
+.div__rainchance{
+    background-color: var(--color-4);
+    width: 100%;
+    height: 213px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    top: 60px;
+    border-radius: 18px;
+}
+
+.div__chnc{
+    width: 100%;
+    height: 140px;
+}
+
+.div__title-ch{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 0px 0px 11px;
+    h1{
+        font-size: 14px;
+    }
+    img{
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+    }
+}
+
+.div__chnc{
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+.div__ch-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    h2{
+        font-size: 15px;
+    }
+    img{
+        width: 229px;
+        height: 24px;
+        object-fit: contain;
+    }
 }
